@@ -100,25 +100,60 @@
 // handle an edge case where an additional digit (1) should be
 // added at the beginning of the array.
 
-const given = [9, 9, 9, 9];
+// const given = [9, 9, 9, 9];
 
-function newOne(given) {
-  let lastDigit = given.length - 1;
-  given[lastDigit] += 1;
+// function newOne(given) {
+//   let lastDigit = given.length - 1;
+//   given[lastDigit] += 1;
 
-  while (lastDigit >= 0 && given[lastDigit] === 10) {
-    given[lastDigit] = 0;
-    lastDigit -= 1;
+//   while (lastDigit >= 0 && given[lastDigit] === 10) {
+//     given[lastDigit] = 0;
+//     lastDigit -= 1;
 
-    if (lastDigit >= 0) {
-      given[lastDigit] += 1;
-    } else {
-      // Handle the case where an additional digit is needed at the beginning
-      given.unshift(1);
-    }
-  }
+//     if (lastDigit >= 0) {
+//       given[lastDigit] += 1;
+//     } else {
+//       // Handle the case where an additional digit is needed at the beginning
+//       given.unshift(1);
+//     }
+//   }
 
-  console.log(given);
-}
+//   console.log(given);
+// }
 
-newOne(given);
+// newOne(given);
+
+///////////////////////////////////////////
+
+/////////// Practice 1 /////////////
+
+const arr = [8,6,7,5,9,9,9];
+
+// function upOne(arr) {
+//   const int = Number(arr.join('')) + 1;
+//   const backToArray = String(int).split('').map((num) => {
+//     return Number(num);
+//   });
+//   console.log(backToArray);
+// }
+
+// upOne(arr);
+
+//////////// Practice 2 /////////////
+
+// const sweetSexy = (arr) => {
+//   let i = arr.length - 1;
+//   arr[i] += 1;
+//   while(i >= 0) {
+//     if (arr[i] !== 10) {
+//       i--;
+//     } else {
+//       arr[i] = 0;
+//       arr[i - 1] += 1;
+//       i--;
+//     }
+//   }
+//   console.log(arr);
+// }
+
+// sweetSexy(arr);

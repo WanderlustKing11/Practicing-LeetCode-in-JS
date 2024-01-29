@@ -110,7 +110,6 @@
 const nums = [3, 5, 22, 10];
 const target = 15;
 
-
 function twoSum(nums, target) {
   const map = {};
   for (let i = 0; i < nums.length; i++) {
