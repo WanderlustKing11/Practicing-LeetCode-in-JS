@@ -80,3 +80,31 @@ function twoSum(numbers, target) {
 }
 
 twoSum(numbers, target);
+
+
+///////////////////////////////////////////////////////////////
+
+//////// Practice /////////
+
+// const nums = [0,5,6,7,8,15,34,79];
+             
+// const targetNum = 20;
+
+// function sumOfTwo(nums, target) {
+//   let leftPointer = 0;
+//   let rightPointer = nums.length - 1;
+//   while (leftPointer < rightPointer) {
+//     let sum = nums[leftPointer] + nums[rightPointer];
+//     if (sum > target) {
+//       rightPointer -= 1;
+//     } else if (sum < target) {
+//       leftPointer += 1;
+//     } else {
+//       console.log([leftPointer + 1, rightPointer + 1]);
+//       break;      
+//     }
+//   }
+//   return [leftPointer + 1, rightPointer + 1];
+// }
+
+// sumOfTwo(nums, targetNum);
