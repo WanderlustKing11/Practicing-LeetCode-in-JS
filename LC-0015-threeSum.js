@@ -61,32 +61,63 @@
 
 /////////// V2.0 ///////////
 
-const nums = [-5, 22, 1, 0, 5, -10, 2, -12, -3];
+// const nums = [-5, 22, 1, 0, 5, -10, 2, -12, -3];
 
-const tryAgain = (nums) => {
-  const ans = [];
-  nums.sort((a,b) => a - b);
+// const tryAgain = (nums) => {
+//   const ans = [];
+//   nums.sort((a,b) => a - b);
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] > 0 && nums[i] === nums[i - 1]) continue;
+//     const target = 0 - nums[i];
+//     let left = i + 1;
+//     let right = nums.length - 1;
+//     while (left < right) {
+//       let currSum = nums[left] + nums[right];
+//       if (currSum > target) {
+//         right -= 1;
+//       } else if (currSum < target) {
+//         left += 1;
+//       } else {
+//         ans.push([nums[i], nums[left], nums[right]]);
+//         while(nums[left] === nums[left + 1]) left++;
+//         while(nums[right] === nums[right -1]) right--;
+//         left++;
+//         right--;
+//       }
+//     }    
+//   }
+//   console.log(ans);
+// }
+
+// tryAgain(nums);
+
+
+const array = [0, -8, 9, 12, 3, 5, -9, 11, -2, -16];
+
+function superSum(nums) {
+  const result = [];
+  nums.sort((a, b) => a - b);
   for (let i = 0; i < nums.length; i++) {
-    if (nums[i] > 0 && nums[i] === nums[i - 1]) continue;
+    if (nums[i] > 0) break;
+    if (i > 0 && nums[i] === nums[i - 1]) continue;
     const target = 0 - nums[i];
-    let left = i + 1;
-    let right = nums.length - 1;
+    let [left, right] = [i + 1, nums.length - 1];
     while (left < right) {
-      let currSum = nums[left] + nums[right];
-      if (currSum > target) {
-        right -= 1;
-      } else if (currSum < target) {
-        left += 1;
-      } else {
-        ans.push([nums[i], nums[left], nums[right]]);
-        while(nums[left] === nums[left + 1]) left++;
-        while(nums[right] === nums[right -1]) right--;
+      const sum = nums[left] + nums[right];
+      if (target === sum) {
+        result.push([nums[i], nums[left], nums[right]]);
+        while (nums[left] === nums[left + 1]) left++;
+        while (nums[right] === nums[right - 1]) right--;
         left++;
         right--;
+      } else if (target < sum) {
+        right--;
+      } else if (target > sum) {
+        left++;
       }
-    }    
+    }
   }
-  console.log(ans);
+  return result;
 }
 
-tryAgain(nums);
+superSum(array);
