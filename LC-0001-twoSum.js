@@ -107,18 +107,48 @@
 
 /////////// Practice ///////////////
 
-const nums = [3, 5, 22, 10];
-const target = 15;
+// const nums = [3, 5, 22, 10];
+// const target = 15;
 
-function twoSum(nums, target) {
-  const map = {};
-  for (let i = 0; i < nums.length; i++) {
-    const secondNum = target - nums[i];
-    if (map[secondNum] !== undefined) {
-      console.log([map[secondNum], i]);
-    }
-    map[nums[i]] = i;
-  }
-}
+// function twoSum(nums, target) {
+//   const map = {};
+//   for (let i = 0; i < nums.length; i++) {
+//     const secondNum = target - nums[i];
+//     if (map[secondNum] !== undefined) {
+//       console.log([map[secondNum], i]);
+//     }
+//     map[nums[i]] = i;
+//   }
+// }
 
-twoSum(nums, target);
+// twoSum(nums, target);
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////// Keep Practicing!!! //////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

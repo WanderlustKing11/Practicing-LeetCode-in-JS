@@ -92,32 +92,93 @@
 // tryAgain(nums);
 
 
-const array = [0, -8, 9, 12, 3, 5, -9, 11, -2, -16];
+// const array = [0, -8, 9, 12, 3, 5, -9, 11, -2, -16];
 
-function superSum(nums) {
+// function superSum(nums) {
+//   const result = [];
+//   nums.sort((a, b) => a - b);
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] > 0) break;
+//     if (i > 0 && nums[i] === nums[i - 1]) continue;
+//     const target = 0 - nums[i];
+//     let [left, right] = [i + 1, nums.length - 1];
+//     while (left < right) {
+//       const sum = nums[left] + nums[right];
+//       if (target === sum) {
+//         result.push([nums[i], nums[left], nums[right]]);
+//         while (nums[left] === nums[left + 1]) left++;
+//         while (nums[right] === nums[right - 1]) right--;
+//         left++;
+//         right--;
+//       } else if (target < sum) {
+//         right--;
+//       } else if (target > sum) {
+//         left++;
+//       }
+//     }
+//   }
+//   return result;
+// }
+
+// superSum(array);
+
+
+/////////////////////////////////////////////////////////////////////
+///////// Practice //////////
+
+// some sudo code
+// Every time we find a triplet of numbers, we push them as an array into the 'results' []
+
+// We sort the array to make it easier.
+// Now we know, if i ever makes it to 0, all the negative numbers are behind it. Therefor
+// it cannot add any positive numbers and equal 0. Therefor `break`.
+
+// We also know that the two pointers will always be in front of i, so i only needs to
+// iterate through nums.length - 2 pointers
+
+// Here we have a choice for the target. Either we search for i + leftPointer + rightPointer (values, not indices),
+// or target = 0 - nums[i], and we compare that with nums[left] + nums[right]. It's really the same thing.
+
+// To move the left and right pointers, we put that in a while loop as long as (left < right);
+// If they cross each other, we know we've exhausted our search criteria.
+
+// There are 3 search statements:
+// sum < target -> means we need to move the left pointer for greater value for sum
+// sum > target -> now we need a lower value for sum, so move right pointer backwards (right--);
+// or sum === target
+
+// Now we can push the three values as an [] into the results array to keep track.
+
+// But we also have to be careful of duplicates.
+// In the for loop, if (i > 0) && the the current i === the last i, then `continue` (skip to the next iteration);
+// In the while loop, if left === next left, then left++;
+// And if right === the next right, then right--;
+
+const practice3Sum = (nums) => {
   const result = [];
   nums.sort((a, b) => a - b);
-  for (let i = 0; i < nums.length; i++) {
+  for (let i = 0; i < nums.length - 2; i++) {
     if (nums[i] > 0) break;
     if (i > 0 && nums[i] === nums[i - 1]) continue;
     const target = 0 - nums[i];
-    let [left, right] = [i + 1, nums.length - 1];
+    let left = i + 1, right = nums.length - 1;
     while (left < right) {
-      const sum = nums[left] + nums[right];
-      if (target === sum) {
+      const currSum = nums[left] + nums[right];
+      if (currSum < target) {
+        left++;
+      } else if (currSum > target) {
+        right--;
+      } else {
         result.push([nums[i], nums[left], nums[right]]);
         while (nums[left] === nums[left + 1]) left++;
-        while (nums[right] === nums[right - 1]) right--;
+        while (nums[right] === nums[right - 1]) right --;
         left++;
-        right--;
-      } else if (target < sum) {
-        right--;
-      } else if (target > sum) {
-        left++;
+        right --;
       }
     }
   }
-  return result;
+  console.log(result);
 }
 
-superSum(array);
+const array = [0, -8, 9, 12, 3, 5, -9, 11, -2, -16];
+practice3Sum(array);
