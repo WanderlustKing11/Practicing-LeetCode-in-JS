@@ -62,11 +62,11 @@ const nums = [1,1,2,2,2,3,3,4,4,4];
 // elements.
 
 // const removeDuplicates = function(nums) {
-//   let k=1; // Initialize the count of unique elements to 1
+//   let k = 1; // Initialize the count of unique elements to 1
 
-//    for(i=0;i<nums.length-1;i++){
-//        if(nums[i]!==nums[i+1]){
-//            nums[k]=nums[i+1]; // Overwrite the next unique element
+//    for (let i = 0; i < nums.length - 1; i++) {
+//        if (nums[i] !== nums[i+1] ) {
+//            nums[k] = nums[i + 1]; // Overwrite the next unique element
 //            k++;
 //        }
 //    }

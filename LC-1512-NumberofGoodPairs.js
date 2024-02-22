@@ -37,20 +37,25 @@
 
 // Solution #2 - Mapping:
 
-function numIdenticalPairs(nums) {
-  let count = {};
-  let result = 0;
+// function numIdenticalPairs(nums) {
+//   let count = {};
+//   let result = 0;
 
-  for (let num of nums) {
-    if (num in count) {
-      result += count[num];
-      count[num]++;
-    } else {
-      count[num] = 1;
-    }
-  }
+//   for (let num of nums) {
+//     if (num in count) {
+//       result += count[num];
+//       count[num]++;
+//     } else {
+//       count[num] = 1;
+//     }
+//   }
 
-  return result;
-};
+//   return result;
+// };
 
-console.log(numIdenticalPairs([1,2,3,1,1,3]));
+// console.log(numIdenticalPairs([1,2,3,1,1,3]));
+
+/////////////////////////////////////////////////////////////////////////////
+
+/////////// Practice //////////////
+
