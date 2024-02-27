@@ -1,10 +1,12 @@
-// In this exercise, you have to analyze records of temperature to find the closest to zero.
+// In this exercise, you have to analyze records of temperature to find 
+// the closest to zero.
 
-// Write a program that prints the temperature closest to 0 among input data. If two numbers 
-// re equally close to zero, positive integer has to be considered closest to zero 
-// (for instance, if the temperatures are -5 and 5, then display 5).
+// Write a program that prints the temperature closest to 0 among input data. 
+// If two numbers are equally close to zero, positive integer has to be considered 
+// closest to zero (for instance, if the temperatures are -5 and 5, then display 5).
 
-// Your program must read the data from the standard input and write the result on the standard output.
+// Your program must read the data from the standard input and write the 
+// result on the standard output.
 
 // Input
 // Line 1: N, the number of temperatures to analyze
@@ -23,27 +25,27 @@
 
 // My solution V1.0
 
-function findClosestToZero(n, inputs) {
-    if (n === 0) {
-      console.log(0);
-      return;
-    }
+// function findClosestToZero(n, inputs) {
+//     if (n === 0) {
+//       console.log(0);
+//       return;
+//     }
   
-    let closestToZero = inputs[0];
+//     let closestToZero = inputs[0];
   
-    for (let i = 1; i < n; i++) {
-      let temp = parseInt(inputs[i]);
+//     for (let i = 1; i < n; i++) {
+//       let temp = parseInt(inputs[i]);
   
-      if (Math.abs(temp) < Math.abs(closestToZero) ||
-          (Math.abs(temp) === Math.abs(closestToZero) && temp > closestToZero)) {
-        closestToZero = temp;
-      }
-    }
+//       if (Math.abs(temp) < Math.abs(closestToZero) ||
+//           (Math.abs(temp) === Math.abs(closestToZero) && temp > closestToZero)) {
+//         closestToZero = temp;
+//       }
+//     }
   
-    console.log(closestToZero);
-  }
+//     console.log(closestToZero);
+//   }
   
-  findClosestToZero(n, inputs);
+//   findClosestToZero(n, inputs);
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -98,4 +100,20 @@ function findClosestToZero(n, inputs) {
 // }
 
 // console.log(result);
+
+//////////////////////////////////////////////////////////////
+
+//////// Practice //////////
+
+// const findClosestToZero = (n, nums) => {
+//   if (n > 0) {
+//     let sortedTemps = nums.sort((a, b) => Math.abs(a) - Math.abs(b));
+//     console.log("Closes to zero is:", sortedTemps[0]);
+//   }
+  
+// }
+
+// const n = 8;
+// const temperatures = [-7, 8, 9, 3, 6, -4, 10, -3, 5];
+// findClosestToZero(n, temperatures);
 

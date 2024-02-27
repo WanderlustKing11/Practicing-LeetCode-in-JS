@@ -186,3 +186,32 @@
 
 /////////////////////////////////////////////////////////////////////
 ///////// Practice //////////
+
+const practice3Sum = (nums) => {
+  const result = [];
+  nums.sort((a, b) => a -b);
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (nums[i] === 0) break;
+    if (i > 0 && nums[i] === nums[i - 1]) continue;
+    const target = 0 - nums[i];
+    let [left, right] = [i + 1, nums.length - 1];
+    while (left < right) {
+      let currSum = nums[left] + nums[right];
+      if (currSum < target) {
+        left++;
+      } else if (currSum > target) {
+        right--;
+      } else {
+        result.push([nums[i], nums[left], nums[right]]);
+        while (nums[left] === nums[left + 1]) left++;
+        while (nums[right] === nums[right - 1]) right--;
+        left++;
+        right--;
+      }
+    }
+  }
+  console.log(result);
+}
+
+const array = [0, -8, 9, 12, 3, 5, -9, -9, -9, 11, 11, 11, 11, 11, -2, -16];
+practice3Sum(array);
